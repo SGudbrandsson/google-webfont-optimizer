@@ -104,7 +104,7 @@ class GWFO {
                         $returnFonts['google'][] = $fontFamily[0] . ":" . $fontFamily[1] . ":" . $subset;
                     }
                 }
-
+/*
                 # Check if the "other" Google fonts are already included - no need to download the same font twice
                 $subsets = array('Cyrillic',
                     'Cyrillic Extended',
@@ -170,7 +170,7 @@ class GWFO {
                                 ($otherFontFamily[1])
                         }
                     }
-                }
+                }*/
             }
             return $returnFonts;
         } else {
