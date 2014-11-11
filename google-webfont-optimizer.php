@@ -182,19 +182,18 @@ class GWFO {
     function googlefonts_create_web_font_script($fontList) {
         $options = self::_get_options();
 
-        # Create the Google family fonts
-        $googleFamilies = implode("|", $fontList['google']);
-
-        # Replace white space with +
-        $googleFamilies = str_replace(' ', '+', $googleFamilies);
-
         if ( $options->get( 'import_type' ) == 'html_link' ) {
+            # Create the Google family fonts
+            $googleFamilies = implode("|", $fontList['google']);
+
             $script = '<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=' . urlencode($googleFamilies) . '">';
 
             foreach ($fontList['other']['url'] as $otherfontlink) {
                 $script .= '\n<link rel="stylesheet" href="' . $otherfontlink . '">';
             }
         } else {
+
+            $googleFamilies = "'" . implode("', '", $fontList['google']) . "'";
 
             # Check the "other"
             if (isset($fontList['other'])) {
@@ -241,7 +240,7 @@ class GWFO {
 
         # Add the font script to the bottom of <head>
         # Expect this to break when someone uses </head> in HTML comments ...
-        $modifiedContent = str_ireplace("<head>", $fontScript . "<head>", $modifiedContent);
+        $modifiedContent = str_ireplace("<head>", "<head>" . $fontScript, $modifiedContent);
 
         # Return the modified HTML
         return $modifiedContent;
@@ -253,7 +252,7 @@ class GWFO {
         if ( stripos($content,"<html") === false || stripos($content,"<xsl:stylesheet") !== false ) { return $content; }
 
     # Find the Google Fonts $fontList = 
-    self::googlefonts_find_google_fonts($content);
+    $fontList = self::googlefonts_find_google_fonts($content);
 
     # If there are no Google Fonts, return the original content
     if ($fontList === false) {
@@ -360,7 +359,7 @@ class GWFO {
     // The observer function
     function googlefonts_start_buffering() {
         if (self::gwfo_can_ob())
-            ob_start('googlefonts_end_buffering');
+            ob_start(array( $this, 'googlefonts_end_buffering' ));
     }
 
     // The observer flush

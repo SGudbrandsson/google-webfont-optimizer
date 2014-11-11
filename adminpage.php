@@ -9,6 +9,7 @@ class GWFO_Admin_Page extends scbAdminPage {
 
 
 	function page_content() {
+		echo html( 'h3', 'Select how you want Google Web Fonts to be loaded' );
 		echo $this->form_table( array(
 			array(
 				'title' => 'Enable or Disable GWFO?',
@@ -18,10 +19,7 @@ class GWFO_Admin_Page extends scbAdminPage {
 					'enabled' => 'Enable',
 					'disabled' => 'Disable'
 				),
-			)
-		) );
-		echo html( 'h3', 'Select how you want Google Web Fonts to be loaded' );
-		echo $this->form_table( array(
+			),
 			array(
 				'title' => 'Select your font loader',
 				'type' => 'radio',
