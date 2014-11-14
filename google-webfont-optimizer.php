@@ -189,7 +189,7 @@ class GWFO {
             $script = '<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=' . urlencode($googleFamilies) . '">';
 
             foreach ($fontList['other']['url'] as $otherfontlink) {
-                $script .= '\n<link rel="stylesheet" href="' . $otherfontlink . '">';
+                $script .= '<link rel="stylesheet" href="' . $otherfontlink . '">';
             }
         } else {
 
