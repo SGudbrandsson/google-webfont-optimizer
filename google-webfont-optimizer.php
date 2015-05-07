@@ -101,7 +101,7 @@ class GWFO {
                             }
                         }
 
-                        if (strlen($fontFamily[0]) > 0)
+                        if (strlen($fontFamily[0]) > 0 && strlen($fontFamily[1]) > 0)
                             $returnFonts['google'][] = $fontFamily[0] . ":" . $fontFamily[1] . ":" . $subset;
                     }
                 }
@@ -239,8 +239,8 @@ class GWFO {
             $modifiedContent = preg_replace($pattern, "", $modifiedContent);
         }
 
-        # Add the font script to the top of <head>
-        # Expect this to break when someone uses <head> in HTML comments ...
+        # Add the font script to the bottom of <head>
+        # Expect this to break when someone uses </head> in HTML comments ...
         $modifiedContent = str_ireplace("<head>", "<head>" . $fontScript, $modifiedContent);
 
         # Return the modified HTML
