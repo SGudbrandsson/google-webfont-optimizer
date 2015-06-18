@@ -189,8 +189,10 @@ class GWFO {
 
             $script = '<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=' . urlencode($googleFamilies) . '">';
 
-            foreach ($fontList['other']['url'] as $otherfontlink) {
-                $script .= '<link rel="stylesheet" href="' . $otherfontlink . '">';
+            if (is_array($fontList['other']['url'])) {
+                foreach ($fontList['other']['url'] as $otherfontlink) {
+                    $script .= '<link rel="stylesheet" href="' . $otherfontlink . '">';
+                }
             }
         } else {
 
