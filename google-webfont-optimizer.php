@@ -3,7 +3,7 @@
  * Plugin Name: Google Webfont Optimizer
  * Plugin URI: http://quickfalcon.com/
  * Description: This plugin optimizes the way Google Fonts loads on your webpage, increasing your website's performance.
- * Version: 0.2.2
+ * Version: 0.2.3
  * Author: Sigurdur Gudbrandsson
  * Author URI: http://quickfalcon.com/
  * License: GPL2
@@ -29,7 +29,7 @@
 require dirname( __FILE__ ) . '/scb/load.php';
 
 class GWFO {
-    const version = '0.2.2';
+    const version = '0.2.3';
     protected static $_instance;
 
     // Class Construct
