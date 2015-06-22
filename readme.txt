@@ -72,8 +72,7 @@ If Google Fonts API is listed, your website uses Google Fonts and you should use
 == Screenshots ==
 
 1. Admin menu
-2. Before Font Optimizing
-3. After Font Optimizing
+2. Before and After Font Optimizing
 
 == Upgrade Notice ==
 
