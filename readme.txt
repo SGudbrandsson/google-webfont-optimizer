@@ -97,6 +97,7 @@ You can now configure if you want GWFO to be embedded using <link rel="styleshee
 = 0.2.4 &amp bug =
 
 Fixed a bug where fonts weren't being removed when &amp; is included.
+Thanks to Jan Jaap for reporting the bug (and the fix)
 
 = 0.2.3 PHP warning bug =
 
