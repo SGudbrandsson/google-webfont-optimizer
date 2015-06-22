@@ -71,9 +71,14 @@ If Google Fonts API is listed, your website uses Google Fonts and you should use
 
 == Screenshots ==
 
-No screenshots yet. Sorry :/
+1. Admin menu
+2. Before Font Optimizing
+3. After Font Optimizing
 
 == Upgrade Notice ==
+
+= 0.2.4 =
+Fixed a bug where fonts weren't being removed when &amp; is included.
 
 = 0.2.3 =
 Fixed a PHP warning bug.
@@ -88,6 +93,10 @@ Fixed a bug where "\n" appears on top of your page when using HTML links.
 You can now configure if you want GWFO to be embedded using <link rel="stylesheet" or use the Web font loader javascript (written and recommended by Google, Adobe and Typekit).
 
 == Changelog ==
+
+= 0.2.4 &amp bug =
+
+Fixed a bug where fonts weren't being removed when &amp; is included.
 
 = 0.2.3 PHP warning bug =
 
