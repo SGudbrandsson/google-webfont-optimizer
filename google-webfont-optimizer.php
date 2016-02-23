@@ -91,6 +91,16 @@ class GWFO {
                         if (isset($urlParameters['subset'])) {
                             # Use the subset parameter for a subset
                             $subset = $urlParameters['subset'];
+                        } else if (strpos($fontFamily[1],"subset")!==false) {
+                            /* 
+                            * ugly workaround for subset not being parsed out to 
+                            * $urlParameters['subset'] or $fontFamily[2]
+                            * as seen in Origamiez theme
+                            */
+                            $fontFamily[1]="variants=".$fontFamily[1];
+                            parse_str($fontFamily[1],$fontBrakeDown);
+                            $fontFamily[1]=$fontBrakeDown["variants"];
+                            $subset=$fontBrakeDown["subset"];
                         } else {
                             if (isset($fontFamily[2])) {
                                 # Use the subset in the family string
