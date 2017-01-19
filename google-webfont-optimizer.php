@@ -183,6 +183,22 @@ class GWFO {
     function googlefonts_create_web_font_script($fontList) {
         $options = self::_get_options();
 
+        # Get custom fonts
+        if ( $options->get( 'custom_font_names' ) && $options->get( 'custom_font_urls' ) ) {
+            if ( array_key_exists( $fontList['other'] ) && array_key_exists( $fontList['other']['name'] ) && is_array( $fontList['other']['name'] ) ) {
+                $fontList['other']['name'] = array_merge( $fontList['other']['name'], explode( ',', $options->get( 'custom_font_names' ) ) );
+            } else {
+                $fontList['other']['name'] = explode( ',', $options->get( 'custom_font_names' ) );
+            }
+
+            if ( array_key_exists( $fontList['other'] ) && array_key_exists( $fontList['other']['url'] ) && is_array( $fontList['other']['url'] ) ) {
+                $fontList['other']['url'] = array_merge( $fontList['other']['url'], explode( ',', $options->get( 'custom_font_urls' ) ) );
+            } else {
+                $fontList['other']['url'] = explode( ',', $options->get( 'custom_font_urls' ) );
+            }
+        }
+
+
         if ( $options->get( 'import_type' ) == 'html_link' ) {
             # Create the Google family fonts
             $googleFamilies = implode("|", $fontList['google']);
@@ -274,8 +290,10 @@ class GWFO {
     // Default options
     protected static function _get_options() {
         return new scbOptions( 'google_webfont_optimizer_options', __FILE__, array(
-            'gwfo_enabled'   => 'enabled',
-            'import_type'    => 'webfont_script'
+            'gwfo_enabled'      => 'enabled',
+            'import_type'       => 'webfont_script',
+            'custom_font_names' => NULL,
+            'custom_font_urls'  => NULL,
         ) );
     }
 
