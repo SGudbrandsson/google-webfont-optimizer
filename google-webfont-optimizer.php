@@ -187,7 +187,7 @@ class GWFO {
             # Create the Google family fonts
             $googleFamilies = implode("|", $fontList['google']);
 
-            $script = '<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=' . urlencode($googleFamilies) . '">';
+            $script = '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=' . urlencode($googleFamilies) . '">';
 
             if (is_array($fontList['other']['url'])) {
                 foreach ($fontList['other']['url'] as $otherfontlink) {
@@ -214,8 +214,7 @@ class GWFO {
         };
         (function() {
             var wf = document.createElement('script');
-            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-                '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+            wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
             wf.type = 'text/javascript';
             wf.async = 'true';
             var s = document.getElementsByTagName('script')[0];
