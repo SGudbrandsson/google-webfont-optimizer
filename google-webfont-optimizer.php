@@ -338,8 +338,10 @@ class GWFO {
         /**
          * Check User Agent
          */
-        if (isset($_SERVER['HTTP_USER_AGENT']) && stristr($_SERVER['HTTP_USER_AGENT'], W3TC_POWERED_BY) !== false) {
-            return false;
+        if(defined('W3TC_POWERED_BY')){
+            if (isset($_SERVER['HTTP_USER_AGENT']) && stristr($_SERVER['HTTP_USER_AGENT'], W3TC_POWERED_BY) !== false) {
+                return false;
+            }
         }
 
         /**
